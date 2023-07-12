@@ -1,3 +1,4 @@
+from cgitb import reset
 from django.db import models
 import pandas as pd
 
@@ -7,12 +8,12 @@ class SurveyInfo(models.Model):
     pregnancies = models.IntegerField()
     glucose = models.IntegerField()
     bloodPressure = models.IntegerField()
-    skinThickness = models.IntegerField()
     insulin = models.IntegerField()
     diabetesPedigreeFunction = models.IntegerField()
     weight = models.IntegerField()
     height = models.IntegerField() 
     Age = models.IntegerField()
+    result = models.BooleanField()
 
     def BMI(self):
         return self.weight // (self.height * self.height)
