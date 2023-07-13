@@ -1,103 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<html dir="rtl" >
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+{% extends 'survey/base.html' %}
+{% load static %}
 
-  {% load static %}
+{% block hero %} 
+<section class="hero-section" id="hero">
 
-  <title>SoftLand Bootstrap Template - Index</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <div class="wave">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'survey/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'survey/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <link href="{% static 'survey/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'survey/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-  <link href="{% static 'survey/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{% static 'survey/css/style.css' %}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: SoftLand
-  * Updated: May 30 2023 with Bootstrap v5.3.0
-  * Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-center">
-    <div class="container d-flex justify-content-between align-items-center">
-
-      <div class="logo">
-        <h1><a href="">Diabete</a></h1>
-      </div>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="active " href="index.html">خانه</a></li>
-          <li><a href="features.html">نتایج</a></li>
-          <li><a href="contact.html">درباره ی ما</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section class="hero-section" id="hero">
-
-    <div class="wave">
-
-      <svg width="100%" height="355px" viewBox="0 0 1920 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g id="Apple-TV" transform="translate(0.000000, -402.000000)" fill="#FFFFFF">
-            <path d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,757 L1017.15166,757 L0,757 L0,439.134243 Z" id="Path"></path>
-          </g>
+    <svg width="100%" height="355px" viewBox="0 0 1920 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Apple-TV" transform="translate(0.000000, -402.000000)" fill="#FFFFFF">
+          <path d="M0,439.134243 C175.04074,464.89273 327.944386,477.771974 458.710937,477.771974 C654.860765,477.771974 870.645295,442.632362 1205.9828,410.192501 C1429.54114,388.565926 1667.54687,411.092417 1920,477.771974 L1920,757 L1017.15166,757 L0,757 L0,439.134243 Z" id="Path"></path>
         </g>
-      </svg>
+      </g>
+    </svg>
 
-    </div>
+  </div>
 
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-12 hero-text-image">
-          <div class="row">
-            <div class="col-lg-6 text-lg-start">
-              <h1 data-aos="fade-right">از دیابت غافل نشید!</h1>
-              <p class="mb-1" data-aos="fade-right" data-aos-delay="100">سریع ترین راه برای تشخیص دیابت یه تست هستش .</p>
-              <br></br>
-              <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="#" class="btn btn-outline-white">بزن بریم</a></p>
-            </div>
-            <div class="col-lg-6 iphone-wrap">
-              <img src="{% static 'survey/img/phone_1.png' %}" alt="Image" class="phone-1" data-aos="fade-right">
-              <img src="{% static 'survey/img/phone_2.png' %}" alt="Image" class="phone-2" data-aos="fade-right" data-aos-delay="200">
-            </div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 hero-text-image">
+        <div class="row">
+          <div class="col-lg-6 text-lg-start">
+            <h1 data-aos="fade-right">از دیابت غافل نشید!</h1>
+            <p class="mb-1" data-aos="fade-right" data-aos-delay="100">سریع ترین راه برای تشخیص دیابت یه تست هستش .</p>
+            <br></br>
+            <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="{% url 'survey:surveyView' %}" class="btn btn-outline-white">بزن بریم</a></p>
+          </div>
+          <div class="col-lg-6 iphone-wrap">
+            <img src="{% static 'survey/img/phone_1.png' %}" alt="Image" class="phone-1" data-aos="fade-right">
+            <img src="{% static 'survey/img/phone_2.png' %}" alt="Image" class="phone-2" data-aos="fade-right" data-aos-delay="200">
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-  </section><!-- End Hero -->
+</section>
 
-  <main id="main">
+{% endblock %}
 
-    <!-- ======= Home Section ======= -->
+{% block sec %}
     <section class="section">
       <div class="container">
 
@@ -143,57 +85,4 @@
 
       </div>
     </section>
-
-    
-
-
-  </main><!-- End #main -->
-
-  <!-- ======= Footer ======= -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 mb-4 mb-md-0">
-          <h3>درباره ی دیابت</h3>
-          <p>این سایت یک ایده سریع و پیاده سازی سریع تر است. تست پیاده سازی شده در این سایت با استفاده از الگوریتم KNN ماشین لرنینگ پیاده سازی شده است. </p>
-          <p class="social">
-            <a href="https://github.com/TahaM8000"> <span class="bi bi-github"></span></a>
-            <a href="https://github.com/mohAhanin"><span class="bi bi-github"></span></a>
-          </p>
-        </div>
-        <div class="col-md-7 ms-auto">
-          <div class="row site-section pt-0">
-            <!-- <div class="col-md-4 mb-4 mb-md-0">
-              <h3>Navigation</h3>
-              <ul class="list-unstyled">
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div> -->
-            
-            
-          </div>
-        </div>
-      </div>
-
-      
-
-    </div>
-  </footer>
-
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="{% static 'survey/vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'survey/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'survey/vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static 'survey/vendor/php-email-form/validate.js' %}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{% static 'survey/js/main.js' %}"></script>
-
-</body>
-
-</html>
+    {% endblock %}
