@@ -4,6 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 #------------------------------------------------------
 data = pd.read_csv('Diabetes.csv.csv')
+print(type(data))
 #------------------------------------------------------
 df=pd.DataFrame(data)
 #------------------------------------------------------
