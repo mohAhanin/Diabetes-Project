@@ -1,10 +1,13 @@
 from cgitb import reset
 from django.db import models
 import pandas as pd
+from django.contrib.auth.models import User
+
 
 # Create your models here.
 
 class SurveyInfo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     pregnancies = models.IntegerField()
     glucose = models.IntegerField()
     bloodPressure = models.IntegerField()
@@ -13,7 +16,7 @@ class SurveyInfo(models.Model):
     weight = models.IntegerField()
     height = models.IntegerField() 
     Age = models.IntegerField()
-    result = models.BooleanField()
+    result = models.BooleanField(default=False)
 
     def BMI(self):
         return self.weight // (self.height * self.height)
@@ -22,3 +25,6 @@ class SurveyInfo(models.Model):
         Info = SurveyInfo.objects.all().values()
         df = pd.DataFrame.from_records(Info)
         return df
+
+    def __str__(self):
+        return str(self.user.username)

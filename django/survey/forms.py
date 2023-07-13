@@ -4,7 +4,8 @@ from .models import SurveyInfo
 class SurveyForm(forms.ModelForm):
     class Meta:
         model = SurveyInfo
-        fields = '__all__'
+        fields = ['pregnancies','glucose','bloodPressure','insulin',
+        'diabetesPedigreeFunction','weight','height','Age',]
         labels = {
             'pregnancies': '  تعداد بارداری  ',
             'glucose': 'گلوکز',
@@ -16,3 +17,9 @@ class SurveyForm(forms.ModelForm):
             'height': 'قد',
             'Age': 'سن'
         }
+    def save(self, commit=True):
+        instance = super(SurveyForm, self).save(commit=False)
+        instance.user = self.user
+        if commit:
+            instance.save()
+        return instance
