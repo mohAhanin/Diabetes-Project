@@ -22,6 +22,9 @@ def surveyView(request):
         form = SurveyForm()
         return render(request, 'survey/survey.html', {'form': form})
 #---------------------------------------------------------------
+def aboutUsView(request):
+    return render(request, 'survey/aboutUs.html')
+#---------------------------------------------------------------
 def landing(request):
     return render(request, 'survey/landing.html')
 #---------------------------------------------------------------
