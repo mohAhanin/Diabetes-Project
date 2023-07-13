@@ -11,4 +11,8 @@ def surveyView(request):
     else:
         form = SurveyForm()
         return render(request, 'survey/survey.html', {'form': form})
+
+
+def landing(request):
+    return render(request, 'survey/landing.html')
     
