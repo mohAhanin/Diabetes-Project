@@ -8,11 +8,11 @@ from django.contrib.auth.models import User
 
 class SurveyInfo(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    pregnancies = models.IntegerField()
-    glucose = models.IntegerField()
-    bloodPressure = models.IntegerField()
-    insulin = models.IntegerField()
-    diabetesPedigreeFunction = models.IntegerField()
+    Pregnancies = models.IntegerField()
+    Glucose = models.IntegerField()
+    BloodPressure = models.IntegerField()
+    Insulin = models.IntegerField()
+    DiabetesPedigreeFunction = models.IntegerField()
     weight = models.IntegerField()
     height = models.IntegerField() 
     Age = models.IntegerField()

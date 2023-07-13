@@ -4,15 +4,14 @@ from .models import SurveyInfo
 class SurveyForm(forms.ModelForm):
     class Meta:
         model = SurveyInfo
-        fields = ['pregnancies','glucose','bloodPressure','insulin',
-        'diabetesPedigreeFunction','weight','height','Age',]
+        fields = ['Pregnancies','Glucose','BloodPressure','Insulin',
+        'DiabetesPedigreeFunction','weight','height','Age',]
         labels = {
-            'pregnancies': '  تعداد بارداری  ',
-            'glucose': 'گلوکز',
-            'bloodPressure': 'فشار خون',
-            'skinThickness': 'ضخامت پوست',
-            'insulin': 'انسولین',
-            'diabetesPedigreeFunction': 'تاریخچه ی دیابت',
+            'Pregnancies': '  تعداد بارداری  ',
+            'Glucose': 'گلوکز',
+            'BloodPressure': 'فشار خون',
+            'Insulin': 'انسولین',
+            'DiabetesPedigreeFunction': 'تاریخچه ی دیابت',
             'weight': 'وزن',
             'height': 'قد',
             'Age': 'سن'
