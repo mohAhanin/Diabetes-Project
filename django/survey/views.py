@@ -88,7 +88,76 @@ def predictionView(request):
     return render(request, 'survey/prediction.html', {'result': result})
  
 #---------------------------------------------------------------
+# from sklearn.model_selection import train_test_split
+# from sklearn import svm
+# from sklearn.preprocessing import StandardScaler
 
+# def predictionViewOnD(request):
+#     #---------------------------------------
+#     #Read info from db
+#     userInfo = request.user.survey
+
+#     surveyInfo = SurveyInfo.objects.filter(isTrain = True)
+
+#     data = list(surveyInfo.values_list('Pregnancies', 'Glucose',
+#      'BloodPressure', 'Insulin', 'weight', 'DiabetesPedigreeFunction', 
+#      'Age','result'))
+
+#     new_data = []
+
+#     for tpl in data:
+#         new_tpl = []
+#         for item in tpl:
+#             if item == True:
+#                 new_tpl.append(1)
+#             elif item == False:
+#                 new_tpl.append(0)
+#             else:
+#                 new_tpl.append(item)
+#         new_data.append(tuple(new_tpl))
+
+#     #---------------------------------------
+#     #SVM
+
+#     df = pd.DataFrame(data,columns=['Pregnancies', 'Glucose',
+#      'BloodPressure', 'Insulin', 'weight', 'DiabetesPedigreeFunction', 
+#      'Age','result'])
+
+#     x = data.iloc[:, :7]
+#     y = data["result"]
+
+#     X_train, X_test, y_train, y_test = train_test_split(x, y, train_size=0.75, random_state=0)
+
+#     # Normalize Features
+#     scaler = StandardScaler()
+#     scaler.fit(X_train)
+#     X_train = scaler.transform(X_train)
+
+#     # Using the best model
+#     model = svm.SVC(kernel='rbf')
+#     model.fit(X_train, y_train)
+
+
+#     patient = np.array([[userInfo.Pregnancies, userInfo.Glucose, userInfo.BloodPressure,
+#     userInfo.Insulin, userInfo.BMI(), userInfo.DiabetesPedigreeFunction, userInfo.Age]])
+    
+#     # Normalize the data with the values used in the training set
+#     patient = scaler.transform(patient)
+        
+#     predbest = model.predict(patient)
+#     predbest[0]
+
+#     #---------------------------------------
+#     result = True
+#     if predbest[0]:
+#         userInfo.result = True
+#         result = True
+#     else:
+#         userInfo.result = False
+#         result = False
+
+
+#     return render(request, 'survey/prediction.html', {'result': result})
 
 
            
