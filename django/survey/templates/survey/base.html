@@ -1,44 +1,125 @@
 <!DOCTYPE html>
+<html lang="en">
 <html dir="rtl" >
 <head>
-  <title>{% block title %}{% endblock %}</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
   {% load static %}
-  <link rel="stylesheet" href="{% static 'survey/css/bootstrap.min.css' %}">
-  {% block css %}{% endblock %}
+
+  <title>SoftLand Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'survey/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'survey/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'survey/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'survey/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'survey/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'survey/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: SoftLand
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/softland-bootstrap-app-landing-page-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">تشخیص دیابت</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex justify-content-between align-items-center">
 
-    <div class="collapse navbar-collapse rtl" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link rtl" href="#">خانه</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">درباره ما</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">تماس با ما</a>
-        </li>
-      </ul>
+      <div class="logo">
+        <h1><a href="{% url 'survey:landing' %}">Diabete</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="active " href="{% url 'survey:landing' %}">خانه</a></li>
+          <li><a href="{% url 'survey:surveyView' %}">نتایج</a></li>
+          <li><a href="{% url 'survey:aboutUsView' %}">درباره ی ما</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
     </div>
+  </header><!-- End Header -->
 
+  <!-- ======= Hero Section ======= -->
+    {% block hero %} {% endblock %}
+ 
+  <!-- End Hero -->
 
-  </nav>
+  <main id="main">
 
-  <div class="container">
-    {% block content %}
+    <!-- ======= Home Section ======= -->
+  {% block sec %}
+    
     {% endblock %}
-  </div>
+    
 
 
-  <script src="{% static 'survey/js/jquery.min.js' %}"></script>
-  <script src="{% static 'survey/js/popper.min.js' %}"></script>
-  <script src="{% static 'survey/js/bootstrap.min.js' %}"></script>
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h3>درباره ی دیابت</h3>
+          <p>این سایت یک ایده سریع و پیاده سازی سریع تر است. تست پیاده سازی شده در این سایت با استفاده از الگوریتم KNN ماشین لرنینگ پیاده سازی شده است. </p>
+          <p class="social">
+            <a href="https://github.com/TahaM8000"> <span class="bi bi-github"></span></a>
+            <a href="https://github.com/mohAhanin"><span class="bi bi-github"></span></a>
+          </p>
+        </div>
+        <div class="col-md-7 ms-auto">
+          <div class="row site-section pt-0">
+            <!-- <div class="col-md-4 mb-4 mb-md-0">
+              <h3>Navigation</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </div> -->
+            
+            
+          </div>
+        </div>
+      </div>
+
+      
+
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'survey/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'survey/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'survey/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'survey/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'survey/js/main.js' %}"></script>
+
 </body>
+
 </html>

@@ -1,22 +1,25 @@
 {% extends 'survey/base.html' %}
 {% load static %}
+
+
 {% block css %}
   <link rel="stylesheet" href="{% static 'survey/css/chatgptcss.css' %}">
 {% endblock %}
 
-
 {% block content %}
   <div class="container">
-    <h1>پرسشنامه</h1>
+    <h1>پرسشنامه دیابت</h1>
+    <p>لطفا فرم زیر را پر کنید:</p>
     <form method="POST" class="my-form">
       {% csrf_token %}
       {% for field in form %}
-        <label >{{ field.label }}</label>
-        {{ field }}
+        <div class="form-group">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+        </div>
       {% endfor %}
       <br></br>
       <button type="submit" class="btn btn-primary">ارسال</button>
     </form>
   </div>
 {% endblock %}
-

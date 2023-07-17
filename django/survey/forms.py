@@ -4,15 +4,21 @@ from .models import SurveyInfo
 class SurveyForm(forms.ModelForm):
     class Meta:
         model = SurveyInfo
-        fields = '__all__'
+        fields = ['Pregnancies','Glucose','BloodPressure','Insulin',
+        'DiabetesPedigreeFunction','weight','height','Age',]
         labels = {
-            'pregnancies': '  تعداد بارداری  ',
-            'glucose': 'گلوکز',
-            'bloodPressure': 'فشار خون',
-            'skinThickness': 'ضخامت پوست',
-            'insulin': 'انسولین',
-            'diabetesPedigreeFunction': 'تاریخچه ی دیابت',
+            'Pregnancies': '  تعداد بارداری  ',
+            'Glucose': 'گلوکز',
+            'BloodPressure': 'فشار خون',
+            'Insulin': 'انسولین',
+            'DiabetesPedigreeFunction': 'تاریخچه ی دیابت',
             'weight': 'وزن',
             'height': 'قد',
             'Age': 'سن'
         }
+    def save(self, commit=True):
+        instance = super(SurveyForm, self).save(commit=False)
+        instance.user = self.user
+        if commit:
+            instance.save()
+        return instance
