@@ -14,7 +14,7 @@ class SurveyInfo(models.Model):
     Insulin = models.IntegerField()
     DiabetesPedigreeFunction = models.FloatField()
     weight = models.FloatField()
-    height = models.IntegerField() 
+    height = models.FloatField() 
     Age = models.IntegerField()
     result = models.BooleanField(default=False)
     isTrain = models.BooleanField(default=False)

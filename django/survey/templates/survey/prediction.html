@@ -23,8 +23,13 @@
       <div class="col-12 hero-text-image">
         <div class="row">
           <div class="col-lg-6 text-lg-start">
-            <h1 data-aos="fade-right">{{result}}</h1>
+            {% if result %}
+            <h1 data-aos="fade-right">Positive</h1>
             <p class="mb-1" data-aos="fade-right" data-aos-delay="100">با توجه به اینکه تست دیابت شما مثبت بوده است، لازم است که تغییراتی در سبک زندگی و تغذیه خود ایجاد کنید تا بهبود وضعیت خود را داشته باشید. برای اقدام بیشتر سریعا به پزشکی متخصص مراجعه کنید. </p>
+            {% else %}
+            <h1 data-aos="fade-right">Negative</h1>
+            <p class="mb-1" data-aos="fade-right" data-aos-delay="100">جای نگرانی نیست ...</p>
+            {% endif %}
             <br></br>
           </div>
           <div class="col-lg-6 iphone-wrap">

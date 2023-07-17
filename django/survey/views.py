@@ -1,3 +1,5 @@
+from operator import truediv
+from xmlrpc.client import boolean
 from django.shortcuts import render
 from .forms import SurveyForm
 from .loadFile import *
@@ -17,7 +19,7 @@ def surveyView(request):
         if form.is_valid():
             form.user = request.user
             form.save()
-        return render(request, 'survey/end.html', {'form': form})
+        return render(request, 'survey/survey.html', {'form': form})
     else:
         form = SurveyForm()
         return render(request, 'survey/survey.html', {'form': form})
@@ -70,12 +72,19 @@ def predictionView(request):
     p = knn.predict([[userInfo.Pregnancies, userInfo.Glucose, userInfo.BloodPressure,
     userInfo.Insulin, userInfo.BMI(), userInfo.DiabetesPedigreeFunction, userInfo.Age]])
 
-    if p == 1:
-        result = "Positive"
-    else:
-        result = "Negative"
-        
 
+
+
+    result = True
+    if p[0]:
+        userInfo.result = True
+        result = True
+    else:
+        userInfo.result = False
+        result = False
+
+    print("-------------------------------")      
+    print(p)
     return render(request, 'survey/prediction.html', {'result': result})
  
 #---------------------------------------------------------------
