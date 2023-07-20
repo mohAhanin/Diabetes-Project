@@ -6,6 +6,7 @@ from .loadFile import *
 from django.shortcuts import render
 from .models import SurveyInfo
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
 from django.core.exceptions import ObjectDoesNotExist
 #---------------------------------------------------------------
 def surveyView(request):
@@ -34,6 +35,28 @@ def Loadfile(request):
     save_csv_data_to_db("survey/Diabetes.csv.csv")
     return render(request, 'survey/landing.html')
 #---------------------------------------------------------------  
+def OrderingDataForTraining(request):
+
+    surveyInfo = SurveyInfo.objects.filter(isTrain = True) | SurveyInfo.objects.filter(isTest = True)
+    SurveyInfo.objects.filter(isTest = True).update(isTest=False)
+
+
+    data = list(surveyInfo.values_list('id', 'Pregnancies','result'))
+
+    df = pd.DataFrame(data,columns=['id', 'Pregnancies','result'])
+
+    x = df.drop(['result'],axis=1) 
+    y = df['result']
+
+
+    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
+
+    SurveyInfo.objects.filter(id__in = X_test['id']).update(isTrain=False, isTest=True)
+    SurveyInfo.objects.filter(id__in = X_train['id']).update(isTrain=True, isTest=False)
+
+        
+
+#---------------------------------------------------------------
 def predictionView(request):
     userInfo = request.user.survey
 
@@ -65,6 +88,7 @@ def predictionView(request):
     y=df['result']
 
 
+
     knn = KNeighborsClassifier(n_neighbors=36)
     knn.fit(x,y)
 
@@ -88,7 +112,6 @@ def predictionView(request):
     return render(request, 'survey/prediction.html', {'result': result})
  
 #---------------------------------------------------------------
-# from sklearn.model_selection import train_test_split
 # from sklearn import svm
 # from sklearn.preprocessing import StandardScaler
 

@@ -10,4 +10,5 @@ urlpatterns = [
     path('aboutUs/', aboutUsView, name='aboutUsView'),
     path('prediction/', predictionView, name='prediction'),
     path('Loadfile/', Loadfile, name='Loadfile'),
+    path('OrderingDataForTraining/', OrderingDataForTraining, name='OrderingDataForTraining'),
 ]

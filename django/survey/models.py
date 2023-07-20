@@ -18,6 +18,7 @@ class SurveyInfo(models.Model):
     Age = models.IntegerField()
     result = models.BooleanField(default=False)
     isTrain = models.BooleanField(default=False)
+    isTest = models.BooleanField(default=False)
 
     def BMI(self):
         return self.weight // (self.height * self.height)
