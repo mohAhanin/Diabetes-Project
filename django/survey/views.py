@@ -34,11 +34,12 @@ def landing(request):
 def Loadfile(request):
     save_csv_data_to_db("survey/Diabetes.csv.csv")
     return render(request, 'survey/landing.html')
-#---------------------------------------------------------------  
+#--------------------------------------------------------------- 
 def OrderingDataForTraining(request):
 
-    surveyInfo = SurveyInfo.objects.filter(isTrain = True) | SurveyInfo.objects.filter(isTest = True)
-    SurveyInfo.objects.filter(isTest = True).update(isTest=False)
+    # SurveyInfo.objects.all().update(isNotInput=True)
+    surveyInfo = SurveyInfo.objects.filter(isNotInput = True)
+    # SurveyInfo.objects.filter(isTest = True).update(isTest=False)
 
 
     data = list(surveyInfo.values_list('id', 'Pregnancies','result'))
@@ -49,12 +50,12 @@ def OrderingDataForTraining(request):
     y = df['result']
 
 
-    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.3, random_state=1)
+    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=1)
 
     SurveyInfo.objects.filter(id__in = X_test['id']).update(isTrain=False, isTest=True)
     SurveyInfo.objects.filter(id__in = X_train['id']).update(isTrain=True, isTest=False)
 
-        
+    return render(request, 'survey/landing.html')   
 
 #---------------------------------------------------------------
 def predictionView(request):

@@ -17,6 +17,8 @@ class SurveyInfo(models.Model):
     height = models.FloatField() 
     Age = models.IntegerField()
     result = models.BooleanField(default=False)
+
+    isNotInput = models.BooleanField(default=False)
     isTrain = models.BooleanField(default=False)
     isTest = models.BooleanField(default=False)
 

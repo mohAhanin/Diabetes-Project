@@ -15,7 +15,7 @@ def save_csv_data_to_db(csv_file_path):
             weight=row['BMI'],
             Age=row['Age'],
             result=row['Outcome'] == 1,
-            isTrain = True
+            isNotInput = True
         )
 
         survey_info.save()
